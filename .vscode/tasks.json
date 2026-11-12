@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Debug",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "Build", "-Configuration", "Debug"],
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Build",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "Build", "-Configuration", "${input:configuration}"],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Run",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "Run", "-Configuration", "${input:configuration}"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Run",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "BuildAndRun", "-Configuration", "${input:configuration}"],
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Clean",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "Clean", "-Configuration", "${input:configuration}"],
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Configure",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\project.ps1", "-Action", "Configure", "-Configuration", "${input:configuration}"],
+            "problemMatcher": ["$msCompile"]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "configuration",
+            "type": "pickString",
+            "description": "Build configuration",
+            "options": ["Debug", "Release"],
+            "default": "Debug"
+        }
+    ]
+}

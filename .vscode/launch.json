@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Snake: Debug (MSVC)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\debug\\bin\\snake.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}\\build\\debug\\bin",
+            "stopAtEntry": false,
+            "console": "integratedTerminal",
+            "preLaunchTask": "Build Debug"
+        }
+    ]
+}
